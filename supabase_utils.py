@@ -26,7 +26,7 @@ def upload_image(file):
         file_bytes = file.read()
         supabase.storage.from_(BUCKET_NAME).upload(file_path, file_bytes, {"content-type": file.type})
         public_url = supabase.storage.from_(BUCKET_NAME).get_public_url(file_path)
-        print(f"Uploaded image: {publec_url}")
+        print(f"Uploaded image: {public_url}")
         return public_url
     except Exception as e:
         print("❌ Exception in upload_image:", e)
