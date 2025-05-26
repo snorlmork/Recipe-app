@@ -30,20 +30,25 @@ def upload_image(file):
 
 def save_recipe(title, ingredients, instructions, image_url=""):
     """Insert a recipe into the Supabase DB"""
+    import json
+
     data = {
         "title": title,
         "ingredients": ingredients,
-        "instructions": instructions,
-        "image_url": image_url,
+        "instructions": instructions
     }
-    import json
+    if image_url:
+        data["image_url"] = image_url
+
     print("📝 Recipe payload:\n", json.dumps(data, indent=2))
 
-    response = supabase.table("recipes").insert(data).execute()
-    print("Insert response:", response)
-    return response
-    
-    supabase.table("recipes").insert(data).execute()
+    try:
+        response = supabase.table("recipes").insert(data).execute()
+        print("📥 Insert response:", response)
+        return response
+    except Exception as e:
+        print("❌ Exception in save_recipe:", e)
+        raise
 
 def load_recipes():
     """Fetch all recipes from Supabase"""
