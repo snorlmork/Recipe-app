@@ -36,9 +36,12 @@ def save_recipe(title, ingredients, instructions, image_url=""):
         "instructions": instructions,
         "image_url": image_url,
     }
-    print("Saving recipe:", data)
+    import json
+    print("📝 Recipe payload:\n", json.dumps(data, indent=2))
+
     response = supabase.table("recipes").insert(data).execute()
     print("Insert response:", response)
+    return response
     
     supabase.table("recipes").insert(data).execute()
 
