@@ -14,7 +14,6 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 def upload_image(file):
     """Upload image to Supabase Storage and return public URL"""
     if not file:
-        print("No file uploaded.")
         return ""
 
     ext = os.path.splitext(file.name)[1]
@@ -22,11 +21,8 @@ def upload_image(file):
     file_path = f"{filename}"
     print(f"Uploading image: {file_path}")
 
-    res = supabase.storage.from_(BUCKET_NAME).upload(file=file_path, file_data=file, content_type=file.type)
-    print("Upload response:", res)
-    
+    supabase.storage.from_(BUCKET_NAME).upload(file_path, file)
     public_url = supabase.storage.from_(BUCKET_NAME).get_public_url(file_path)
-    print("Public URL:", public_url)
 
     return public_url
 
