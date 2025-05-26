@@ -35,7 +35,6 @@ def save_recipe(title, ingredients, instructions, image_url=""):
         "ingredients": ingredients,
         "instructions": instructions,
         "image_url": image_url,
-        "created_at": datetime.datetime.utcnow().isoformat()
     }
     print("Saving recipe:", data)
     response = supabase.table("recipes").insert(data).execute()
