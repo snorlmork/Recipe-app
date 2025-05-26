@@ -21,6 +21,8 @@ def upload_image(file):
     file_path = f"{filename}"
     print(f"Uploading image: {file_path}")
 
+    file_bytes = file.read()  # Read the UploadedFile as bytes
+
     supabase.storage.from_(BUCKET_NAME).upload(file_path, file)
     public_url = supabase.storage.from_(BUCKET_NAME).get_public_url(file_path)
 
