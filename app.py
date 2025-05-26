@@ -18,9 +18,13 @@ if menu == "Add Recipe":
         submitted = st.form_submit_button("Save Recipe")
 
         if submitted and title and ingredients and instructions:
-            image_url = upload_image(image_file) if image_file else ""
-            save_recipe(title.strip(), ingredients.strip(), instructions.strip(), image_url)
-            st.success(f"✅ Recipe '{title}' saved!")
+            try:
+                image_url = upload_image(image_file) if image_file else ""
+                save_recipe(title.strip(), ingredients.strip(), instructions.strip(), image_url)
+                st.success(f"✅ Recipe '{title}' saved!")
+            except Exception as e:
+                st.error(f"❌ Error saving recipe: {e}")
+
 
 # --- View Recipes Page ---
 elif menu == "View Recipes":
