@@ -48,7 +48,7 @@ elif menu == "View Recipes":
                 if r["image_url"]:
                     st.image(r["image_url"], width=400)
                 st.markdown("**Ingredients:**")
-                for ing in r["ingredients"].split(","):
+                for ing in r["ingredients"].splitlines():
                     st.write(f"- {ing.strip()}")
                 st.markdown("**Instructions:**")
                 st.write(r["instructions"])
