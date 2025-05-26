@@ -23,7 +23,7 @@ def upload_image(file):
 
     file_bytes = file.read()  # Read the UploadedFile as bytes
 
-    supabase.storage.from_(BUCKET_NAME).upload(file_path, file)
+    supabase.storage.from_(BUCKET_NAME).upload(file_path, file_bytes, {"content-type": file.type})
     public_url = supabase.storage.from_(BUCKET_NAME).get_public_url(file_path)
 
     return public_url
