@@ -12,7 +12,7 @@ if menu == "Add Recipe":
 
     with st.form("recipe_form"):
         title = st.text_input("Recipe Title")
-        ingredients = st.text_area("Ingredients (comma-separated)")
+        ingredients = st.text_area("Ingredients")
         instructions = st.text_area("Instructions")
         image_file = st.file_uploader("Upload a Recipe Photo", type=["png", "jpg", "jpeg"])
         submitted = st.form_submit_button("Save Recipe")
@@ -47,6 +47,8 @@ elif menu == "View Recipes":
             with st.expander(r["title"]):
                 if r["image_url"]:
                     st.image(r["image_url"], width=400)
-                st.markdown(f"**Ingredients:** {r['ingredients']}")
+                st.markdown("**Ingredients:**")
+                for ing in r["ingredients"].split(","):
+                    st.write(f"- {ing.strip()}")
                 st.markdown("**Instructions:**")
                 st.write(r["instructions"])
