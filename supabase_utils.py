@@ -14,19 +14,23 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 def upload_image(file):
     """Upload image to Supabase Storage and return public URL"""
     if not file:
+        print("No file uploaded")
         return ""
 
     ext = os.path.splitext(file.name)[1]
     filename = f"{uuid4()}{ext}"
     file_path = f"{filename}"
-    print(f"Uploading image: {file_path}")
+    print(f"Uploading image: {file_path}, type: {file.type}")
 
-    file_bytes = file.read()  # Read the UploadedFile as bytes
-
-    supabase.storage.from_(BUCKET_NAME).upload(file_path, file_bytes, {"content-type": file.type})
-    public_url = supabase.storage.from_(BUCKET_NAME).get_public_url(file_path)
-
-    return public_url
+    try:
+        file_bytes = file.read()
+        supabase.storage.from_(BUCKET_NAME).upload(file_path, file_bytes, {"content-type": file.type})
+        public_url = supabase.storage.from_(BUCKET_NAME).get_public_url(file_path)
+        print(f"Uploaded image: {publec_url}")
+        return public_url
+    except Exception as e:
+        print("❌ Exception in upload_image:", e)
+        raise
 
 def save_recipe(title, ingredients, instructions, image_url=""):
     """Insert a recipe into the Supabase DB"""
