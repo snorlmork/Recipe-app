@@ -4,8 +4,8 @@ import datetime
 import os
 
 # Add your Supabase credentials here
-SUPABASE_URL = "https://your-project-id.supabase.co"
-SUPABASE_KEY = "your-anon-key"
+SUPABASE_URL = "https://ykmzmmndytgbrejmgkwu.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlrbXptbW5keXRnYnJlam1na3d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgyODM0MzYsImV4cCI6MjA2Mzg1OTQzNn0.iSGIh_Wxk6zCdSY37YEaHIhEoNbrFLKpwE1cMam8q0w"
 
 BUCKET_NAME = "recipe-images"
 
