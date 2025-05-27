@@ -1,4 +1,4 @@
-showSidebarNavigation = False
+[theme]
 
 # The preset Streamlit theme that your custom theme inherits from.
 base = "dark"
@@ -53,3 +53,6 @@ showWidgetBorder = True
 # Sets the root font size (in pixels) for the app, which determines the
 # overall scale of text and UI elements. The default base font size is 16.
 # baseFontSize =
+
+[ui]
+hideSidebarNav = True
