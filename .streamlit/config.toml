@@ -52,4 +52,4 @@ showWidgetBorder = true
 
 # Sets the root font size (in pixels) for the app, which determines the
 # overall scale of text and UI elements. The default base font size is 16.
-baseFontSize = "36"
+baseFontSize = 36
