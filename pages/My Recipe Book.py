@@ -1,8 +1,20 @@
 # --- View Recipes Page ---
 import streamlit as st
 from supabase_utils import load_recipes
+from PIL import Image
 
-st.subheader("My Recipes")
+icons = {
+    "book": "icons/book.png",
+    "add": "icons/add.png"
+}
+
+
+with st.container():
+    col1, col2 = st.columns([0.2, 2])
+    with col1:
+        st.image(icons["book"], width=50)
+    with col2:
+        st.subheader("My Recipes")
 
 recipes = load_recipes()
 
