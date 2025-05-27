@@ -4,16 +4,16 @@
 base = "dark"
 
 # Primary accent color
-primaryColor = "slate gray"
+primaryColor = "#587792"
 
 # Background color of the app
-backgroundColor = "bone"
+backgroundColor = "#E2DDCA"
 
 # Background color used for most interactive widgets
-secondaryBackgroundColor = "slate gray"
+secondaryBackgroundColor = "#587792"
 
 # Color used for almost all text
-textColor = "midnight green"
+textColor = "#06353E"
 
 # The font family for all text, except code blocks. This can be one of
 # the following:
@@ -45,7 +45,7 @@ headingFont = "monospace"
 baseRadius = "10px"
 
 # The color of the border around elements.
-borderColor = "slate gray"
+borderColor = "#587792"
 
 # Whether to show a border around input widgets.
 showWidgetBorder = True
