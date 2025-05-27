@@ -48,10 +48,10 @@ baseRadius = "10px"
 borderColor = "#587792"
 
 # Whether to show a border around input widgets.
-showWidgetBorder = True
+showWidgetBorder = true
 
 # Sets the root font size (in pixels) for the app, which determines the
 # overall scale of text and UI elements. The default base font size is 16.
 
 [ui]
-hideSidebarNav = True
+hideSidebarNav = true
