@@ -2,7 +2,7 @@
 import streamlit as st
 from supabase_utils import load_recipes
 
-st.subheader("📖 Saved Recipes")
+st.subheader("My Recipes")
 
 recipes = load_recipes()
 
