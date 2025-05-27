@@ -1,0 +1,58 @@
+[theme]
+
+# The preset Streamlit theme that your custom theme inherits from.
+base = "dark"
+
+# Primary accent color
+primaryColor = "#587792"
+
+# Background color of the app
+backgroundColor = "#E2DDCA"
+
+# Background color used for most interactive widgets
+secondaryBackgroundColor = "#587792"
+
+# Color used for almost all text
+textColor = "#06353E"
+
+# The font family for all text, except code blocks. This can be one of
+# the following:
+# - "sans-serif"
+# - "serif"
+# - "monospace"
+# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - a comma-separated list of these (as a single string) to specify
+# fallbacks
+# For example, you can use the following:
+# font = "cool-font, fallback-cool-font, sans-serif"
+font = "monospace"
+
+# The font family to use for headings. This can be one of the following:
+# - "sans-serif"
+# - "serif"
+# - "monospace"
+# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - a comma-separated list of these (as a single string) to specify
+# fallbacks
+# If no heading font is set, Streamlit uses `theme.font` for headings.
+headingFont = "monospace"
+
+# The radius used as basis for the corners of most UI elements. This can
+# be one of the following: "none", "small", "medium", "large", "full",
+# or the number in pixels or rem. For example, you can use "10px",
+# "0.5rem", or "2rem". To follow best practices, use rem instead of
+# pixels when specifying a numeric size.
+baseRadius = "10px"
+
+# The color of the border around elements.
+borderColor = "#587792"
+
+# Whether to show a border around input widgets.
+showWidgetBorder = True
+
+# Sets the root font size (in pixels) for the app, which determines the
+# overall scale of text and UI elements. The default base font size is 16.
+# baseFontSize =
+
+[ui]
+hideSidebarNav = True
