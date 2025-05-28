@@ -8,7 +8,6 @@ icons = {
     "add": "icons/add.png"
 }
 
-
 with st.container():
     col1, col2 = st.columns([0.2, 2])
     with col1:
@@ -21,6 +20,7 @@ with st.form("recipe_form"):
     ingredients = st.text_area("Ingredients")
     instructions = st.text_area("Instructions")
     image_file = st.file_uploader("Upload a Recipe Photo", type=["png", "jpg", "jpeg"])
+    
     col1, col2, col3 = st.columns([2,2,2])
     with col2:
         submitted = st.form_submit_button("Save Recipe")

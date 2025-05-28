@@ -8,7 +8,6 @@ icons = {
     "add": "icons/add.png"
 }
 
-
 with st.container():
     col1, col2 = st.columns([0.2, 2])
     with col1:
@@ -38,3 +37,14 @@ else:
                 st.write(f"- {ing.strip()}")
             st.markdown("**Instructions:**")
             st.write(r["instructions"])
+
+            col1, col2 = st.columns([1, 1])
+            with col1:
+                if st.button("Edit", key=f"edit_{r['id']}"):
+                    st.session_state["edit_mode"] = r
+                    st.switch_page("pages/Edit Recipe.py")
+            with col2:
+                if st.button("Delete", key=f"delete_{r['id']}"):
+                    delete_recipe(r["id"])
+                    st.success(f"Deleted '{r['title']}'")
+                    st.experimental_rerun()
