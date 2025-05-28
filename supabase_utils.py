@@ -58,3 +58,21 @@ def load_recipes():
     """Fetch all recipes from Supabase"""
     response = supabase.table("recipes").select("*").order("title", desc=False).execute()
     return response.data
+
+def delete_recipe(recipe_id):
+    """Delete a recipe by ID"""
+    response = supabase.table("recipes").delete().eq("id", recipe_id).execute()
+    print("Delete response:", response)
+    return response
+
+def update_recipe(recipe_id, title, ingredients, instructions, image_url=""):
+    """Update a recipe by ID"""
+    data = {
+        "title": title,
+        "ingredients": ingredients,
+        "instructions": instructions,
+        "image_url": image_url
+    }
+    response = supabase.table("recipes").update(data).eq("id", recipe_id).execute()
+    print("Update response:", response)
+    return response
