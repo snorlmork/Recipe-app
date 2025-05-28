@@ -11,7 +11,7 @@ icons = {
 }
 
 with st.container():
-    col1, col2 = st.columns([0.2, 2])
+    col1, col2 = st.columns([0.1, 2.5])
     with col1:
         st.image(icons["add"], width=50)
     with col2:
