@@ -1,6 +1,6 @@
 # --- View Recipes Page ---
 import streamlit as st
-from supabase_utils import load_recipes
+from supabase_utils import load_recipes, delete_recipe
 from PIL import Image
 
 icons = {
@@ -45,6 +45,22 @@ else:
                     st.switch_page("pages/Edit Recipe.py")
             with col2:
                 if st.button("Delete", key=f"delete_{r['id']}"):
-                    delete_recipe(r["id"])
-                    st.success(f"Deleted '{r['title']}'")
-                    st.experimental_rerun()
+                    st.session_state["confirm_delete_id"] = r["id"]
+                    st.session_state["confirm_delete_title"] = r["title"]
+                    st.rerun()
+                    # Visa bekräftelse om användaren klickat "Delete"
+            if st.session_state.get("confirm_delete_id") == r["id"]:
+                st.warning(f"Are you sure you want to delete **{r['title']}**?")
+                col_del1, col_del2 = st.columns([1, 1])
+                with col_del1:
+                    if st.button("Yes, delete", key=f"confirm_{r['id']}"):
+                        delete_recipe(r["id"])
+                        st.success(f"Deleted '{r['title']}'")
+                        del st.session_state["confirm_delete_id"]
+                        del st.session_state["confirm_delete_title"]
+                        st.rerun()
+                with col_del2:
+                    if st.button("Cancel", key=f"cancel_{r['id']}"):
+                        del st.session_state["confirm_delete_id"]
+                        del st.session_state["confirm_delete_title"]
+                        st.rerun()
