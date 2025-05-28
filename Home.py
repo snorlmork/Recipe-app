@@ -1,8 +1,7 @@
 import streamlit as st
 from PIL import Image
-from ui_utils import hide_sidebar_and_controls
 
-hide_sidebar_and_controls()
+st.set_page_config(layout="wide", initial_sidebar_state="collapsed")
 
 icons = {
     "TeaTime": "icons/TeaTime.png",
