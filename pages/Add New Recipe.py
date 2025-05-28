@@ -2,6 +2,9 @@
 import streamlit as st
 from supabase_utils import upload_image, save_recipe
 from PIL import Image
+from ui_utils import hide_sidebar_and_controls
+
+hide_sidebar_and_controls()
 
 icons = {
     "book": "icons/book.png",
