@@ -2,8 +2,11 @@
 import streamlit as st
 from supabase_utils import load_recipes, delete_recipe
 from PIL import Image
+from ui_utils import hide_page_from_sidebar
 
 st.set_page_config(layout="wide", initial_sidebar_state="collapsed")
+
+hide_page_from_sidebar("Edit Recipe")
 
 icons = {
     "book": "icons/book.png",
