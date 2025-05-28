@@ -1,6 +1,11 @@
 import streamlit as st
 from supabase_utils import upload_image, update_recipe
 from PIL import Image
+from ui_utils import hide_page_from_sidebar
+
+st.set_page_config(page_title="Edit Recipe", layout="wide", initial_sidebar_state="collapsed")
+
+hide_page_from_sidebar("Edit Recipe")
 
 icons = {
     "book": "icons/book.png",

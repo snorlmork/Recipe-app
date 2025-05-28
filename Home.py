@@ -1,7 +1,19 @@
 import streamlit as st
 from PIL import Image
+from ui_utils import hide_page_from_sidebar
 
 st.set_page_config(layout="wide", initial_sidebar_state="collapsed")
+
+hide_page_from_sidebar("Edit Recipe")
+
+st.markdown("""
+    <style>
+        /* Dölj endast sidomenylänken till "Edit Recipe" */
+        section[data-testid="stSidebar"] ul li a:has(span:contains("Edit Recipe")) {
+            display: none !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 icons = {
     "TeaTime": "icons/TeaTime.png",
