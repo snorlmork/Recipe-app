@@ -1,5 +1,8 @@
 import streamlit as st
 from PIL import Image
+from ui_utils import hide_sidebar_and_controls
+
+hide_sidebar_and_controls()
 
 icons = {
     "TeaTime": "icons/TeaTime.png",
