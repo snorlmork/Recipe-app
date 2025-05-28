@@ -21,14 +21,16 @@ icons = {
     "add": "icons/add.png"
 }
 
-st.image(icons["TeaTime"], width=400)
+col1, col2, col3 = st.columns([1,4,6])
+with col2:
+    st.image(icons["TeaTime"], width=400)
 #st.markdown("<h1 style='text-align: center;'>My Recipe Book</h1>", unsafe_allow_html=True)
 
-st.subheader("My Recipe Book")
-if st.button("Add New Recipe"):
-    st.switch_page("pages/Add New Recipe.py")
-if st.button("My Recipe Book"):
-    st.switch_page("pages/My Recipe Book.py")
+    st.subheader("My Recipe Book")
+    if st.button("Add New Recipe"):
+        st.switch_page("pages/Add New Recipe.py")
+    if st.button("My Recipe Book"):
+        st.switch_page("pages/My Recipe Book.py")
 
 ##WORKS
 #with st.container():
